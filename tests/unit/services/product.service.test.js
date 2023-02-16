@@ -5,7 +5,7 @@ const productService = require('../../../src/services/product.service');
 
 const PRODUCT_NOT_FOUND_MESSAGE = { message: 'Product not found' }
 const { allProductsResponse,
-  productSearchNameResponse } = require('../../../__tests__/_dataMock');
+  productSearchNameResponse, productUpdateExistsNameBody } = require('../../../__tests__/_dataMock');
 
 describe('Product Service Unit tests', function () {
   afterEach(sinon.restore);
@@ -31,5 +31,15 @@ describe('Product Service Unit tests', function () {
       const result = await productService.findById();
       expect(result.message).to.be.deep.equal(PRODUCT_NOT_FOUND_MESSAGE);
     })
+  });
+
+  describe('Method Post test', function () {
+    it('Insert a product', async function () { 
+      sinon.stub(productModel, 'insert').resolves({ insertId: 1 });
+      sinon.stub(productModel, 'findById').resolves(productSearchNameResponse);
+
+      const result = await productService.insert(productUpdateExistsNameBody);
+      expect(result.message).to.be.deep.equal(productSearchNameResponse);
+    });
   });
 });

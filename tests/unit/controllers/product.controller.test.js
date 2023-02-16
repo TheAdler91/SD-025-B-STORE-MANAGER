@@ -11,7 +11,8 @@ const productController = require('../../../src/controllers/product.controller')
 const productService = require('../../../src/services/product.service');
 
 const { allProductsResponse,
-  productSearchNameResponse } = require('../../../__tests__/_dataMock');
+  productSearchNameResponse,
+productUpdateBody } = require('../../../__tests__/_dataMock');
 
 describe('Product Controller Unit tests', function () {
   afterEach(sinon.restore);
@@ -64,6 +65,25 @@ describe('Product Controller Unit tests', function () {
 
       expect(res.status).to.have.been.calledWith(404);
       expect(res.json).to.have.been.calledWith({ message: 'Product not found' });
+    });
+  });
+  describe('Method Post test', function () { 
+    it('Create a product', async function () { 
+       const res = {};
+       const req = {
+        body: productUpdateBody,
+       };
+      
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'insert').resolves({ type: null, message: productSearchNameResponse })
+
+      await productController.insert(req, res);
+
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.have.been.calledWith(productSearchNameResponse);
+
     });
   });
 });
