@@ -16,4 +16,6 @@ const validateProduct = (req, res, next) => {
   return next();
 };
 
-module.exports = { validateProduct };
+module.exports = {
+  validateProduct,
+};
