@@ -7,8 +7,8 @@ const { expect } = chai;
 chai.use(sinonChai);
 chai.use(chaiHttp);
 
-const productController = require('../../../src/controllers/product.controller');
-const productService = require('../../../src/services/product.service');
+const { productController } = require('../../../src/controllers');
+const { productService } = require('../../../src/services');
 
 const { allProductsResponse,
   productSearchNameResponse,

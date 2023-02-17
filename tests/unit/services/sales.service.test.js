@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const saleModel = require('../../../src/models/sale.model');
-const saleService = require('../../../src/services/sale.service');
+const { saleModel } = require('../../../src/models');
+const { saleService } = require('../../../src/services');
 const validation = require('../../../src/services/validations/sale.service.validations');
 
 const { rightSaleBody, saleCreateResponse, wrongSaleNotProductIdBody } = require('../../../__tests__/_dataMock');

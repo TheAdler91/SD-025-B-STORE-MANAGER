@@ -1,4 +1,4 @@
-const saleModel = require('../models/sale.model');
+const { saleModel } = require('../models');
 const validation = require('./validations/sale.service.validations');
 
 const getAll = async () => {

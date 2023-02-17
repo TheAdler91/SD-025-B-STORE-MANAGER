@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const connection = require('../../../src/models/connection');
-const saleModel = require('../../../src/models/sale.model');
+const connection = require('../../../src/models/db/connection');
+const { saleModel } = require('../../../src/models');
 
 const { rightSaleBody } = require('../../../__tests__/_dataMock');
 const { allSales, saleById } = require('../../mock/sale.mock');
