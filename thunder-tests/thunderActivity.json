@@ -111,5 +111,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "7905b17c-735a-4b91-9759-bd9c56e67131",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/3",
+    "url": "localhost:3000/products/3",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-17T20:56:44.940Z",
+    "modified": "2023-02-17T20:56:44.940Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

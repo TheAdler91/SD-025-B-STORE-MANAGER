@@ -23,8 +23,14 @@ const insert = async (product) => {
   return insertId;
 };
 
+const remove = async (id) => connection.execute(
+  'DELETE FROM StoreManager.products WHERE id = ?',
+  [id],
+);
+
 module.exports = {
   getAll,
   findById,
   insert,
+  remove,
 };

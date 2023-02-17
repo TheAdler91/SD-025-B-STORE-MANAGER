@@ -18,8 +18,18 @@ const insert = async (product) => {
   return { type: null, message: result };
 };
 
+const remove = async (id) => {
+  const result = await productModel.findById(id);
+  if (!result) return { type: 404, message: { message: 'Product not found' } };
+
+  await productModel.remove(id);
+
+  return { type: null, message: null };
+};
+
 module.exports = {
   getAll,
   findById,
   insert,
+  remove,
 };

@@ -20,8 +20,17 @@ const insert = async (req, res) => {
   res.status(201).json(message);
 };
 
+const remove = async (req, res) => { 
+  const { id } = req.params;
+  const { type, message } = await productService.remove(id);
+  if (type) return res.status(type).json(message);
+
+  res.status(204).end();
+};
+
 module.exports = {
   getAll,
   findById,
   insert,
+  remove,
 };
