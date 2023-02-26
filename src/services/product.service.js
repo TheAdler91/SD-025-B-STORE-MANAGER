@@ -23,7 +23,7 @@ const insert = async (name) => {
 
 const remove = async (id) => {
   const result = await productModel.findById(id);
-  if (!result) return { type: 'PRODUCT_NOT_FOUND', message: { message: 'Product not found' } };
+  if (!result) return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
 
   await productModel.remove(id);
 
